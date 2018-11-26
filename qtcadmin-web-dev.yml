@@ -1,0 +1,57 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+cache:
+  time:
+    perms: 12      # 权限缓存失效时间   (小时)
+    token: 5       # token缓存失效时间 (分钟)
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+  redis:
+    host: 127.0.0.1 #10.104.108.177
+    port: 6379
+    jedis:
+      pool:
+        max-active: 1024
+        max-wait: -1s
+        max-idle: 200
+    timeout: 500s
+    password: 123456
+
+jdbc:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/qtccloud?useUnicode=true&characterEncoding=utf8 #10.104.20.123
+    username: root #developer
+    password: 123456  #developer1015
+    initialSize: 5
+    minIdle: 5
+    maxActive: 100
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 100
+    filters: stat,wall,slf4j
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+      map-underscore-to-camel-case: true
+
+logging:
+  level:
+    root: INFO
+
+ribbon:
+  eureka:
+    enable: true

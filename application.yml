@@ -1,0 +1,27 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+  redis:
+    host: 127.0.0.1 #10.104.108.177
+    port: 6379
+    jedis:
+      pool:
+        max-active: 1024
+        max-wait: -1s
+        max-idle: 200
+    timeout: 500s
+    password: 123456
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+      map-underscore-to-camel-case: true
+
+logging:
+  level:
+    root: INFO
+
+ribbon:
+  eureka:
+    enable: true
