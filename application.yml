@@ -23,5 +23,17 @@ logging:
     root: INFO
 
 ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
   eureka:
-    enable: true
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 250000

@@ -1,3 +1,16 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.cloud.client.ip-address}:8001/eureka/
+    registry-fetch-interval-seconds: 5
+    healthcheck:
+      enabled: true
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
 management:
   endpoints:
     web:
@@ -10,6 +23,8 @@ cache:
     token: 5       # token缓存失效时间 (分钟)
 
 spring:
+  application:
+    name: api-admin
   jackson:
     date-format: yyyy-MM-dd
     time-zone: GMT+8
