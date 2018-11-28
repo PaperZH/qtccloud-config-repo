@@ -23,8 +23,6 @@ cache:
     token: 5       # token缓存失效时间 (分钟)
 
 spring:
-  application:
-    name: api-admin
   jackson:
     date-format: yyyy-MM-dd
     time-zone: GMT+8
